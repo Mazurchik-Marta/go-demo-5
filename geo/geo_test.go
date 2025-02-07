@@ -1,4 +1,4 @@
-package geo_test // стируем только то что экспортируется!
+package geo_test 
 
 import (
 	"demo/weather/geo"
@@ -6,14 +6,14 @@ import (
 )
 
 func TestGetMyLocotion(t *testing.T) {
-	// Arrange - подготовка, expected результат, данные для функции
+	// Arrange 
 	city := "Moscow"
 	expected := geo.GeoData{
 		Сity: "Moscow",
 	}
-	// Act - выполняем функцию
+	// Act 
 	got, err := geo.GetMyLocation(city)
-	// Assert - проверка результата с expected
+	// Assert 
 	if err != nil {
 		t.Error(err)
 	}
@@ -22,7 +22,6 @@ func TestGetMyLocotion(t *testing.T) {
 	}
 
 }
-// Негативный тест
 func TestTestGetMyLocotionNoCity(t *testing.T)  {
 	city := "Londonsloi"
 	_, err := geo.GetMyLocation(city)

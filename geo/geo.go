@@ -16,7 +16,7 @@ type CityPopulationResponce struct {
 	Error bool `json:"error"`
 }
 
-// Отдельные ошибки
+
 var ErrorNoCity = errors.New("NOCITY")
 var ErrorNOT200 = errors.New("NOT200")
 
@@ -31,7 +31,6 @@ func GetMyLocation(city string) (*GeoData, error){
 		}, nil
 	}
 	
-	//func http.Get(url string) (resp *http.Response, err error)
 	resp, err := http.Get("https://ipapi.co/json/")
 	if err != nil {
 		return nil, err
@@ -40,13 +39,12 @@ func GetMyLocation(city string) (*GeoData, error){
 		return nil, ErrorNOT200
 	}
 	defer resp.Body.Close()
-	//resp.Body field Body io.ReadCloser
-	body, err := io.ReadAll(resp.Body) //var body []byte
+	
+	body, err := io.ReadAll(resp.Body) 
 	if err != nil {
 		return nil, err
 	}
 	var geo GeoData
-	// func json.Unmarshal(data []byte, v any) error
 	json.Unmarshal(body, &geo)
 	return &geo, nil
 
@@ -54,16 +52,9 @@ func GetMyLocation(city string) (*GeoData, error){
 // Сервис 2
 // Проверка локации
 func checkCity(city string) bool {
-	/*
-	func http.Post(url string, contentType string, body io.Reader) 
-	(resp *http.Response, err error)
-	*/
-	
-	// func json.Marshal(v any) ([]byte, error)
 	postBody, _ := json.Marshal(map[string]string{
 		"city" : city,
-	}) // необходимо сформировать байты
-	// func bytes.NewBuffer(buf []byte) *bytes.Buffer
+	}) 
 	resp, err := http.Post("https://countriesnow.space/api/v0.1/countries/population/cities","application/json",bytes.NewBuffer(postBody))
 	if err != nil {
 		return false
