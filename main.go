@@ -15,12 +15,12 @@ func main() {
 
 	flag.Parse()
 	fmt.Println(*city)
-	geoData, err := geo.GetMyLocotion(*city)
+	geoData, err := geo.GetMyLocation(*city)
 	if err != nil {
 		fmt.Println(err.Error())
 	}
 	fmt.Println(geoData)
-	weatherData := weather.GetWeather(*geoData, *fotmat)
+	weatherData, _ := weather.GetWeather(*geoData, *fotmat)
 	fmt.Println(weatherData)
 
 }
