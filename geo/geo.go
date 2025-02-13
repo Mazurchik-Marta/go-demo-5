@@ -104,7 +104,7 @@ func checkCity(city string) bool {
 	}
 	// Чтение тела ответа:
 	/*
-Закрывается resp.Body (отложенный вызов defer), затем читается ответ в body. В случае ошибки возвращается false.	
+	Закрывается resp.Body (отложенный вызов defer), затем читается ответ в body. В случае ошибки возвращается false.	
  */
 	defer resp.Body.Close()
 	body, err := io.ReadAll(resp.Body)

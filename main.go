@@ -6,12 +6,13 @@ import (
 	"flag"
 	"fmt"
 )
+// 1
 
 func main() {
 
-	fmt.Println("Новый проект!")
+	fmt.Println("!")
 	city := flag.String("city", "", "Город пользователя")
-	fotmat := flag.Int("fotmat", 1, "Формат вывода погоды")
+	format := flag.Int("format", 1, "Формат вывода погоды")
 
 	flag.Parse()
 	fmt.Println(*city)
@@ -20,7 +21,7 @@ func main() {
 		fmt.Println(err.Error())
 	}
 	fmt.Println(geoData)
-	weatherData, _ := weather.GetWeather(*geoData, *fotmat)
+	weatherData, _ := weather.GetWeather(*geoData, *format)
 	fmt.Println(weatherData)
 
 }
