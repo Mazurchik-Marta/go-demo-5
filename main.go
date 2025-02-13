@@ -6,7 +6,6 @@ import (
 	"flag"
 	"fmt"
 )
-// 1
 
 func main() {
 

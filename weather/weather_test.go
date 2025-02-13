@@ -10,7 +10,7 @@ import (
 func TestGetWeather(t *testing.T) {
 	expected := "Longon"
 	geoData := geo.GeoData{
-		Сity: expected,
+		City: expected,
 	}
 	format := 3 
 	results, err := weather.GetWeather(geoData, format)
@@ -36,7 +36,7 @@ func TestGetWeatherWrongFormat(t *testing.T) {
 		t.Run(tc.name, func(t *testing.T) {
 			expected := "Longon"
 			geoData := geo.GeoData{
-				Сity: expected,
+				City: expected,
 			}
 			_, err := weather.GetWeather(geoData, tc.format)
 			if err != weather.ErrWrongFormat {

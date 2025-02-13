@@ -9,7 +9,7 @@ func TestGetMyLocotion(t *testing.T) {
 	// Arrange 
 	city := "Moscow"
 	expected := geo.GeoData{
-		Сity: "Moscow",
+		City: "Moscow",
 	}
 	// Act 
 	got, err := geo.GetMyLocation(city)
@@ -17,7 +17,7 @@ func TestGetMyLocotion(t *testing.T) {
 	if err != nil {
 		t.Error(err)
 	}
-	if got.Сity != expected.Сity {
+	if got.City != expected.City {
 		t.Errorf("Ожидалось %v, получение %v", expected, got)
 	}
 
